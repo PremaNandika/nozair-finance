@@ -1,4 +1,21 @@
-<h1 class="dark:text-white">Welcome to SvelteKit</h1>
-<p class="dark:text-white">
-	Visit <a href="https://svelte.dev/docs/kit">svelte.dev/docs/kit</a> to read the documentation
-</p>
+<script lang="ts">
+	import * as Card from '$lib/components/shadcn/ui/card/index.js';
+</script>
+
+<svelte:head>
+	<title>Finance App | Nozair</title>
+	<meta
+		name="description"
+		content="Personal Finance Tracker is a simple yet powerful finance management app designed to help you track your income, expenses, and budget with ease. "
+	/>
+</svelte:head>
+<div class="container flex h-[80vh] flex-col items-center justify-center">
+	<Card.Root class="mx-auto max-w-xl">
+		<Card.Header>
+			<Card.Title class="text-center text-3xl">Welcome to Nozair Finance Tracker</Card.Title>
+		</Card.Header>
+		<Card.Content class="text-center text-sm"
+			>The app is currently in development. Please check back later.</Card.Content
+		>
+	</Card.Root>
+</div>
