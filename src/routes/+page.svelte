@@ -2,13 +2,6 @@
 	import * as Card from '$lib/components/shadcn/ui/card/index.js';
 </script>
 
-<svelte:head>
-	<title>Finance App | Nozair</title>
-	<meta
-		name="description"
-		content="Personal Finance Tracker is a simple yet powerful finance management app designed to help you track your income, expenses, and budget with ease. "
-	/>
-</svelte:head>
 <div class="container flex h-[80vh] flex-col items-center justify-center">
 	<Card.Root class="mx-auto max-w-xl">
 		<Card.Header>
