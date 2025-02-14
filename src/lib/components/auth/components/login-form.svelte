@@ -34,7 +34,7 @@
 	});
 </script>
 
-<Card.Root class="mx-auto max-w-sm">
+<Card.Root class="mx-auto w-full max-w-md">
 	<Card.Header>
 		<Card.Title class="text-2xl">Login</Card.Title>
 		<Card.Description>Enter your email below to login to your account</Card.Description>
@@ -64,26 +64,29 @@
 				<Form.Description />
 				<Form.FieldErrors />
 			</Form.Field>
-			<Form.Field {form} name="password">
-				<Form.Control>
-					{#snippet children({ props })}
-						<Form.Label>Password</Form.Label>
-						<Input
-							class={cn($errors.password && '!border-destructive')}
-							type="password"
-							{...props}
-							bind:value={$formData.password}
-						/>
-					{/snippet}
-				</Form.Control>
-				<Form.Description />
-				<Form.FieldErrors />
-			</Form.Field>
+			<div class="flex flex-col space-y-2">
+				<Form.Field {form} name="password">
+					<Form.Control>
+						{#snippet children({ props })}
+							<Form.Label>Password</Form.Label>
+							<Input
+								class={cn($errors.password && '!border-destructive')}
+								type="password"
+								{...props}
+								bind:value={$formData.password}
+							/>
+						{/snippet}
+					</Form.Control>
+					<Form.Description />
+					<Form.FieldErrors />
+				</Form.Field>
+				<a href="/login" class="text-right text-xs transition hover:underline">Forgot Password?</a>
+			</div>
 			<div class="pt-10">
-				<Form.FormButton class="w-full">Submit</Form.FormButton>
+				<Form.FormButton class="w-full">Login</Form.FormButton>
 				<div class="mt-4 text-center text-sm">
 					Don't have an account?
-					<a href="##" class="underline"> Sign up </a>
+					<a href="/sign-up" class="underline"> Sign up </a>
 				</div>
 			</div>
 		</form>
