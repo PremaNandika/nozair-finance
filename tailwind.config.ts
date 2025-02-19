@@ -67,7 +67,9 @@ const config: Config = {
 				sm: 'calc(var(--radius) - 4px)'
 			},
 			fontFamily: {
-				sans: [...fontFamily.sans]
+				sans: [...fontFamily.sans],
+				inter: ['Inter', 'sans-serif'],
+				atkinson: ['Atkinson Hyperlegible Mono', 'sans-serif']
 			},
 			keyframes: {
 				'accordion-down': {
