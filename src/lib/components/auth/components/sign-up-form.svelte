@@ -2,6 +2,8 @@
 	import { z } from 'zod';
 	import { superForm, defaults } from 'sveltekit-superforms';
 	import { zodClient, zod } from 'sveltekit-superforms/adapters';
+	// import authService from '../service';
+	// import { toast } from 'svelte-sonner';
 
 	import * as Card from '$lib/components/shadcn/ui/card/index';
 	import { Input } from '$lib/components/shadcn/ui/input/index';
@@ -34,10 +36,21 @@
 
 	const { form: formData, errors, allErrors, validateForm } = form;
 
-	$effect(() => {
-		console.log($formData);
-		console.log($errors);
-	});
+	async function handleSubmit() {
+		// if ($formData.email === '' || $formData.password === '' || $formData.username === '') {
+		// 	return;
+		// }
+		// try {
+		// 	await authService.signUpWithEmail({
+		// 		email: $formData.email,
+		// 		password: $formData.password,
+		// 		username: $formData.username
+		// 	});
+		// 	toast('Account created successfully. Please check your email to verify your account.');
+		// } catch (error) {
+		// 	toast.error('Something went wrong. Please try again.');
+		// }
+	}
 </script>
 
 <Card.Root class="mx-auto w-full max-w-md">

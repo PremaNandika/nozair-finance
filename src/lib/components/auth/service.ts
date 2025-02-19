@@ -1,11 +1,19 @@
-import type { AuthRequest } from './model/auth.request';
+import type { SignInRequest, SignUpRequest } from './model/auth.request';
 import type { UserSession } from './model/auth.response';
 
 import { supabase } from '../base/utils/supabase';
 
-const signUpWithEmail = async ({ email, password }: AuthRequest): Promise<UserSession | null> => {
+const signUpWithEmail = async ({
+	email,
+	password,
+	username
+}: SignUpRequest): Promise<UserSession | null> => {
 	try {
-		const { data, error } = await supabase.auth.signUp({ email, password });
+		const { data, error } = await supabase.auth.signUp({
+			email,
+			password,
+			options: { data: { username } }
+		});
 		if (error) throw error;
 		return data.session as UserSession;
 	} catch (error) {
@@ -14,7 +22,7 @@ const signUpWithEmail = async ({ email, password }: AuthRequest): Promise<UserSe
 	}
 };
 
-const signInWithEmail = async ({ email, password }: AuthRequest): Promise<UserSession | null> => {
+const signInWithEmail = async ({ email, password }: SignInRequest): Promise<UserSession | null> => {
 	try {
 		const { data, error } = await supabase.auth.signInWithPassword({ email, password });
 		if (error) throw error;
